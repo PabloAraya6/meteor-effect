@@ -1,3 +1,108 @@
 {
-  "extends": "next/core-web-vitals"
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaFeatures": { "jsx": true },
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
+  },
+  "extends": [
+    "airbnb",
+    "plugin:prettier/recommended",
+    "prettier",
+    "plugin:@next/next/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "plugins": ["react", "react-hooks"],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react/no-danger": ["off"],
+    "react/function-component-definition": ["off"],
+    "react/no-unstable-nested-components": ["off"],
+    "curly": ["off"],
+    "import/no-anonymous-default-export": ["off"],
+    "import/prefer-default-export": ["off"],
+    "react/prop-types": ["error"],
+    "@next/next/no-img-element": ["off"],
+    "no-shadow": ["off"],
+    "no-plusplus": ["off"],
+    "no-unused-vars": ["warn"],
+    "no-nested-ternary": ["off"],
+    "react/jsx-key": ["off"],
+    "default-param-last": ["off"],
+    "eqeqeq": ["error", "smart"],
+    "jsx-a11y/href-no-hash": ["off"],
+    "jsx-a11y/anchor-is-valid": ["off"],
+    "react/display-name": ["off"],
+    "react/no-did-update-set-state": ["off"],
+    "react/sort-comp": ["off"],
+    "react/no-unescaped-entities": ["off"],
+    "react/no-array-index-key": ["off"],
+    "react/forbid-prop-types": ["off"],
+    "react/jsx-filename-extension": [
+      "warn",
+      { "extensions": [".js", ".jsx", "ts", "tsx"] }
+    ],
+    "react-hooks/exhaustive-deps": ["error"],
+    "import/no-extraneous-dependencies": ["off"],
+    "react/destructuring-assignment": ["off"],
+    "import/extensions": ["off"]
+  },
+  "settings": {
+    "react": { "version": "detect" },
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx", ".js", ".jsx"]
+      }
+    }
+  },
+  "overrides": [
+    {
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaFeatures": { "jsx": true },
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+      },
+      "files": ["**/*.ts", "**/*.tsx"],
+      "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "jest": true,
+        "node": true
+      },
+      "extends": [
+        "airbnb",
+        "airbnb-typescript",
+        "plugin:prettier/recommended",
+        "prettier",
+        "plugin:@next/next/recommended"
+      ],
+      "plugins": ["react", "react-hooks", "@typescript-eslint"],
+      "rules": {
+        "react/react-in-jsx-scope": ["off"],
+        "react/jsx-props-no-spreading": ["off"],
+        "react/no-danger": ["off"],
+        "import/prefer-default-export": ["off"],
+        "react/prop-types": "off",
+        "react/require-default-props": "off",
+        "react/no-unescaped-entities": ["off"],
+        "react/no-array-index-key": "off",
+        "jsx-a11y/label-has-associated-control": ["off"]
+      },
+      "settings": { "react": { "version": "detect" } }
+    }
+  ]
 }
