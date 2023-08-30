@@ -3,9 +3,13 @@ import { Meteors } from './meteors';
 import { AddMeteor } from './add-meteor';
 
 const DEFAULT_METEORS = 20;
+const WIKIPEDIA_URL = 'https://es.wikipedia.org/wiki/Meteoro_(astronom%C3%ADa)';
 
 export function MeteorPreview() {
   const [meteors, setMeteors] = useState<number>(DEFAULT_METEORS);
+
+  const moreInfoCallback = () => window.open(WIKIPEDIA_URL, '_blank');
+
   return (
     <div className="h-[40rem] flex items-center justify-center">
       <div className=" h-3/4 md:h-1/2 w-3/4  relative max-w-sm">
@@ -42,6 +46,7 @@ export function MeteorPreview() {
           <button
             type="button"
             className="border px-4 py-1 rounded-lg !text-sm  border-gray-500 text-gray-300"
+            onClick={moreInfoCallback}
           >
             Más información &rarr;
           </button>
