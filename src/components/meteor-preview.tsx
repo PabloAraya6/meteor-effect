@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Meteors } from './meteors';
 import { AddMeteor } from './add-meteor';
 
@@ -12,8 +12,6 @@ export function MeteorPreview() {
   const svgRef = useRef<SVGSVGElement | null>(null);
 
   const [angle, setAngle] = useState<number>(0);
-
-  const [animationName, setAnimationName] = useState('meteor-effect');
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (svgRef.current) {
@@ -29,20 +27,6 @@ export function MeteorPreview() {
   };
 
   const moreInfoCallback = () => window.open(WIKIPEDIA_URL, '_blank');
-
-  useEffect(() => {
-    const toggleAnimation = () => {
-      setAnimationName(prevName =>
-        prevName === 'meteor-effect' ? 'reverseMeteor-effect' : 'meteor-effect'
-      );
-    };
-
-    document.addEventListener('click', toggleAnimation);
-
-    return () => {
-      document.removeEventListener('click', toggleAnimation);
-    };
-  }, []);
 
   return (
     <div
@@ -88,7 +72,7 @@ export function MeteorPreview() {
           >
             Más información &rarr;
           </button>
-          <Meteors number={meteors} animationName={animationName} />
+          <Meteors number={meteors} />
         </div>
         <AddMeteor setMeteors={setMeteors} />
       </div>

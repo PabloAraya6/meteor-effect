@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       animation: {
         'meteor-effect': 'meteor 5s linear infinite',
-        'reverseMeteor-effect': 'reverseMeteor 5s linear infinite',
+        'meteor-reverse-effect': 'meteor 5s linear infinite',
       },
       keyframes: {
         meteor: {
@@ -18,17 +18,6 @@ const config: Config = {
           '70%': { opacity: '1' },
           '100%': {
             transform: 'rotate(215deg) translateX(-500px)',
-            opacity: '0',
-          },
-        },
-        reverseMeteor: {
-          '0%': {
-            transform: 'scaleX(-1) rotate(215deg) translateX(0)',
-            opacity: '1',
-          },
-          '70%': { opacity: '1' },
-          '100%': {
-            transform: 'scaleX(-1) rotate(215deg) translateX(-500px)',
             opacity: '0',
           },
         },
